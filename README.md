@@ -7,8 +7,8 @@ tracked live in the navbar and persisted across reloads.
 
 ## Live Links
 
-- **Live site:** _add your deployed URL here_
-- **Repository:** _add your GitHub repo URL here_
+- **Live site:** [_FitLog Theta-bice_](https://fit-log-theta-bice.vercel.app/)
+- **Repository:** [_GitHub repo_](https://github.com/taminulislam27/Fit-Log)
 
 ## Description
 
