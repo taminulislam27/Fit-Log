@@ -32,7 +32,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${oswald.variable} ${inter.variable}`}>
-      <body className="flex min-h-screen flex-col bg-ink font-sans text-white antialiased">
+      <body
+        className="flex min-h-screen flex-col bg-ink font-sans text-white antialiased"
+        suppressHydrationWarning
+      >
         <ToastProvider>
           <PlanProvider>
             <Navbar />

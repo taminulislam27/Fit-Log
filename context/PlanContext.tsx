@@ -94,27 +94,26 @@ export function PlanProvider({ children }: { children: React.ReactNode }) {
 
   const addToPlan = useCallback(
     (workout: Workout) => {
-      let added = false;
-      setPlan((prev) => {
-        if (prev.some((w) => w.id === workout.id)) return prev;
-        if (prev.length >= PLAN_CAP) return prev;
-        added = true;
-        return [...prev, workout];
-      });
-      return added;
+      if (plan.some((w) => w.id === workout.id)) return false;
+      if (plan.length >= PLAN_CAP) return false;
+      setPlan((prev) =>
+        prev.some((w) => w.id === workout.id) ? prev : [...prev, workout]
+      );
+      return true;
     },
-    []
+    [plan]
   );
 
-  const addToSaved = useCallback((workout: Workout) => {
-    let added = false;
-    setSaved((prev) => {
-      if (prev.some((w) => w.id === workout.id)) return prev;
-      added = true;
-      return [...prev, workout];
-    });
-    return added;
-  }, []);
+  const addToSaved = useCallback(
+    (workout: Workout) => {
+      if (saved.some((w) => w.id === workout.id)) return false;
+      setSaved((prev) =>
+        prev.some((w) => w.id === workout.id) ? prev : [...prev, workout]
+      );
+      return true;
+    },
+    [saved]
+  );
 
   const removeFromPlan = useCallback((id: number) => {
     setPlan((prev) => prev.filter((w) => w.id !== id));
